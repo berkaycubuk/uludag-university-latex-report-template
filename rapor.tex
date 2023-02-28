@@ -1,0 +1,314 @@
+%
+% Tasarım projesi raporu için hazırlanmış latex şablonu. Bu şablon
+% 2022-2023 eğitim öğretim yılları arasında son sınıf
+% öğrencisi Berkay Çubuk <berkay@berkaycubuk.com>
+% tarafından Bursa Uludağ Üniversitesi proje raporlarında
+% kullanılması için hazırlanmıştır.
+%
+% Bu şablonunun kullanımı kendi sorumluluğunuzdadır.
+% Şablon tasarımcısı herhangi bir sorumluluk kabul etmemektedir.
+%
+\documentclass[hidelinks,12pt]{article}
+% türkçe desteği
+\usepackage[turkish,shorthands=off]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% linkler
+\usepackage{hyperref}
+
+% kod görüntüleme
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.9}
+
+% başlık fontları
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{15}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+\subsubsectionfont{\fontsize{12}{15}\selectfont}
+
+% diagramlar
+\usepackage{tikz}
+\usepackage{smartdiagram}
+
+% atıf yapma
+\usepackage[
+        backend=biber,
+        style=authoryear,
+        sorting=nyt,
+    ]{biblatex}
+ \addbibresource{./bib.bib}
+
+\usepackage{mathptmx}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{
+    a4paper,
+    left=4cm,
+    top=3cm,
+    bottom=3cm,
+    right=2cm,
+}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\counterwithin{figure}{section}
+
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+% \renewcommand{\figurename}{Şekil}
+% \renewcommand{\tablename}{Tablo}
+
+\usepackage{titlesec}
+
+\titlelabel{\thetitle.\quad}
+
+\titlespacing*
+    {\section}
+    {20pt}
+    {3.5ex plus 1ex minus .2ex}
+    {2.3ex plus .2ex}
+
+\titlespacing*
+    {\subsection}
+    {20pt}
+    {3.5ex plus 1ex minus .2ex}
+    {2.3ex plus .2ex}
+
+\titlespacing*
+    {\subsubsection}
+    {20pt}
+    {3.5ex plus 1ex minus .2ex}
+    {2.3ex plus .2ex}
+
+% doküman bilgileri
+\author{Ad Soyad\\Öğrenci Numarası}
+\title{Rapor Başlığı}
+\date{}
+
+% içindekiler bölümünün başlığını yok etmek için
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
+\makeatletter
+\renewcommand*\listfigurename{}
+
+\begin{document}
+
+% kapak sayfası
+\begin{titlepage}
+    \begin{tabular}{c c c}
+        \includegraphics[width=3cm]{./bursa_uludag_logo.png} &
+        T.C. &
+        \includegraphics[width=3cm]{./bursa_uludag_muh_logo.png} \\
+        & BURSA ULUDAĞ ÜNİVERSİTESİ & \\
+        & MÜHENDİSLİK FAKÜLTESİ & \\
+        & BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ & \\
+    \end{tabular}
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \begin{center}
+        \large{Proje Başlığı}
+    \end{center}
+    \hfill \break
+    \newline
+    \begin{center}
+        Ad Soyad\\Öğrenci Numarası\\
+    \end{center}
+    \hfill \break
+    \newline
+    \begin{center}
+        TASARIM PROJESİ FİNAL RAPORU\\
+    \end{center}
+    \hfill \break
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \hfill \break
+    \begin{center}
+        Bursa 2023
+    \end{center}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+    \begin{center}
+    T.C. \\
+    \end{center}
+    \begin{center}
+    BURSA ULUDAĞ ÜNİVERSİTESİ \\
+    \end{center}
+    \begin{center}
+    MÜHENDİSLİK FAKÜLTESİ \\
+    \end{center}
+    \begin{center}
+    BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ \\
+    \end{center}
+    \hfill \break
+    \newline
+    \newline
+    \newline
+    \begin{center}
+        \large{Proje Başlığı}
+    \end{center}
+    \hfill \break
+    \newline
+    \begin{center}
+        Ad Soyad\\Öğrenci Numarası\\
+    \end{center}
+    \hfill \break
+    \newline
+    \newline
+    \newline
+    \newline
+    \begin{center}
+        \textbf{Proje Danışmanı} \\ Proje Danışmanı Ad Soyad
+    \end{center}
+    \hfill \break
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \hfill \break
+    \begin{center}
+        Bursa 2023
+    \end{center}
+\newpage
+
+% özet sayfası
+\pagenumbering{roman}
+\setcounter{page}{2}
+\begin{center}
+\section*{\centering ÖZET}
+\end{center}
+\addcontentsline{toc}{section}{\protect\numberline{}ÖZET}
+\quad Özet içeriği
+
+\newpage
+
+% abstract sayfası
+\begin{center}
+\section*{\centering ABSTRACT}
+\end{center}
+\addcontentsline{toc}{section}{\protect\numberline{}ABSTRACT}
+\quad Abstract içeriği
+
+\newpage
+
+% içindekiler sayfası
+\newpage
+\thispagestyle{empty}
+    \section*{\centering İÇİNDEKİLER}
+    \tableofcontents
+\newpage
+
+% şekiller dizini sayfası
+\section*{\centering ŞEKİLLER DİZİNİ}
+\addcontentsline{toc}{section}{\protect\numberline{}ŞEKİLLER DİZİNİ}
+\listoffigures
+\newpage
+
+% giriş sayfası
+\section{GİRİŞ}
+\pagenumbering{arabic}
+
+Giriş bölümünde konunun önemi, güncelliği, yapılacak çalışmanın amaçları ve
+çalışmaya ilişkin genel bilgiler yer almalıdır.
+\newpage
+
+% kaynak araştırması sayfası
+\section{KAYNAK ARAŞTIRMASI}
+
+Kaynak araştırması bölümünde, konu ile
+ilgili önceki çalışmalar, ulaşılan sonuçları vurgulamak üzere özetlenmelidir.
+\newpage
+
+% materyal ve yöntem sayfası
+\section{MATERYAL ve YÖNTEM}
+
+Materyal
+ve yöntem bölümünde, proje çalışmasında kullanılan veri ve bilgiler, bunların elde
+edilme yöntemleri, araştırma ve incelemede izlenen yöntem veya yöntemler hakkında
+açıklamalar yapılmalıdır.
+\newpage
+
+% araştırma sonuçları sayfası
+\section{ARAŞTIRMA SONUÇLARI}
+
+Araştırma sonuçları bölümünde, araştırma kapsamına uygun
+olarak elde edilen bilgi ve bulgular sunulmalıdır.
+\newpage
+
+% tartışmma sayfası
+\section{TARTIŞMA}
+
+Tartışma bölümünde ise, proje
+çalışmasında elde edilen sonuçlar, önceki çalışma sonuçları ile karşılaştırılarak
+çalışmaya ilişkin sonuçlar çıkartılmalı ve genel değerlendirme yapılmalıdır.
+\newpage
+
+% ekler sayfası
+\section{EKLER}
+Bitirme
+projesi içinde yer almaları halinde konuyu dağıtıcı ve okumada sürekliliği engelleyici
+nitelikteki uzun açıklamalar, bilgisayar programları, örnek hesaplamalar gibi bilgiler
+veya paftalar vb. bilgiler EKLER bölümünde sunulmalıdır. Bunlar; geniş ve ayrıntılı
+tablolar, anket formları, belgeler, geniş haritalar ve benzerleridir. Bu bölümde yer
+alacak her bir belge ya da açıklama için bir başlık seçilmeli ve bunlar sunuş sırasına
+göre Ek 1., Ek 2. gibi her biri ayrı bir sayfadan başlayacak şekilde numaralandırılarak
+sunulmalıdır.
+\newpage
+
+% kaynaklar sayfası
+\newpage
+\section{KAYNAKLAR}
+\printbibliography[heading=none]
+
+\newpage
+
+% teşekkür sayfası
+\section{TEŞEKKÜR}
+
+\begin{flushright}
+    Ad Soyad\\
+    Bursa, 2023
+\end{flushright}
+
+Projeyi hazırlayanın belirtmek istediği özel mesaj durumunda olup konu
+hakkındaki kişisel görüş, amaç ve dileklerini kapsamalıdır. Projeyi destekleyen
+kuruluşlar varsa, bunlardan söz edilebilir ve istenirse, ilgililere teşekkür edinilebilir.
+Sayfanın üst kısmına, paragraftan başlayacak şekilde büyük harflerle (kalın ve koyu
+karakter) TEŞEKKÜR yazılmalıdır. Teşekkür başlığının sağ alt kısmında yazarın ismi
+ve soyadı yazılmalıdır. Yazar adının hemen altına projenin yapıldığı il ve yıl
+yazılmalıdır.
+\newpage
+
+% özgeçmiş sayfası
+\section{ÖZGEÇMİŞ}
+
+\subsection{Ad Soyad}
+Bitirme Projesini hazırlayan öğrencinin kısa özgeçmişi bu bölümde yer almalıdır.
+
+\end{document}
